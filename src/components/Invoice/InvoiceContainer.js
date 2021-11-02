@@ -67,7 +67,7 @@ export default function InvoiceContainer() {
                             </button>
                           }
                           <CardImg
-                            src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630572642i/2165.jpg"
+                            src="https://lallahoriye.com/wp-content/uploads/2019/04/Product_Lg_Type.jpg"
                             alt=""
                             height="200px"
                           />
@@ -76,16 +76,14 @@ export default function InvoiceContainer() {
                           <div>Price: {Number.parseFloat(elem.value)}</div>
                           <Card.Footer>
                             <small className="text-muted">
-                              Last updated 3 mins ago
+                              Added from the Cart
                             </small>
                           </Card.Footer>
                         </Card>
                       </Col>
                     ))}
                 </Row>
-              </Container>
-            </Container>
-            <div>
+             <div style={{ color: "white"}}  className="justify-content-lg-center ">
               Total:{" "}
               {cart.length > 0
                 ? cart
@@ -96,8 +94,17 @@ export default function InvoiceContainer() {
                     .toFixed(2)
                 : 0}
             </div>
-            <button onClick={handleInvoice}>CHECKOUT</button>
+            <button style={{ color: "#040741", backgroundColor: "white", width:"200px", borderRadius:"25px"}} onClick={handleInvoice}>CHECKOUT</button>
+              </Container>
+
+              
+            </Container>
+            
+           
+         
+            
           </div>
+        
         </Col>
       </Row>
     </div>
