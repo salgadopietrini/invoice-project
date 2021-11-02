@@ -37,9 +37,9 @@ const SubmitUser = () =>{
   <h1>Invoice Project</h1>
   <div>
   <br></br><br></br>
-    <input placeholder="Username" onChange={SaveUsername}/><br></br><br></br>
-    <input  placeholder="Password" onChange={SavePassword}/><br></br>
-    <br></br><button onClick={SubmitUser}>Submit</button>
+    <input className="input" placeholder="Username" onChange={SaveUsername}/><br></br><br></br>
+    <input className="input"  placeholder="Password" onChange={SavePassword}/><br></br>
+    <br></br><button className="button" onClick={SubmitUser}>Submit</button>
   </div>
     
 
