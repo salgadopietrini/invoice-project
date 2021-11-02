@@ -22,7 +22,9 @@ const SubmitUser = () =>{
   <div><center>
   <h1>Login</h1>
   <div>
+  <label>Username:</label>
     <input onChange={SaveUsername}/>
+    <label>Password:</label>
     <input onChange={SavePassword}/>
     <br></br><button onClick={SubmitUser}>Submit</button>
   </div>
