@@ -23,8 +23,10 @@ const SubmitUser = () =>{
     fetch(url)
       .then({})
 
-    console.log("login sucessful");
-
+      if(true)
+    alert("login sucessful");
+      else
+      alert("bad login");
 
 
 }

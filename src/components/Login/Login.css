@@ -20,6 +20,9 @@ text-align: center;
 
 color: #2148C0;
 }
+.button:hover{
+    background: #ffffffbe;
+}
 
 .input{
     width: 300px;
