@@ -14,18 +14,26 @@ const SavePassword = (event) =>{
 }
 
 const SubmitUser = () =>{
+  
+  
+    let url="https://mocki.io/v1/a1b5ace8-d041-44f9-b4ad-46d94449b8ea";
+    fetch(url)
+      .then({})
+
+    console.log("login sucessful");
+
 
 
 }
 
   return(
   <div><center>
-  <h1>Login</h1>
+  <icon ></icon>
+  <h1>Invoice Project</h1>
   <div>
-  <label>Username:</label>
-    <input onChange={SaveUsername}/>
-    <label>Password:</label>
-    <input onChange={SavePassword}/>
+ 
+    <input placeholder="Username" onChange={SaveUsername}/><br></br><br></br>
+    <input placeholder="Password" onChange={SavePassword}/><br></br>
     <br></br><button onClick={SubmitUser}>Submit</button>
   </div>
     
