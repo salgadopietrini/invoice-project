@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../../App";
 
-export default function Cart({ cartItems, handleQuantity, handleDelete }) {
+export default function Cart() {
+  const { cart, handleQuantity, handleDelete } = useContext(Context);
   const add = (event) => {
     handleQuantity(event.target.value, "add");
   };
@@ -15,8 +17,8 @@ export default function Cart({ cartItems, handleQuantity, handleDelete }) {
   return (
     <div>
       <div>Cart:</div>
-      {cartItems.length > 0 &&
-        cartItems.map((elem) => (
+      {cart.length > 0 &&
+        cart.map((elem) => (
           <div style={{ border: "2px solid" }}>
             <button onClick={deleteItem} value={elem.id}>
               x
@@ -37,6 +39,7 @@ export default function Cart({ cartItems, handleQuantity, handleDelete }) {
             </div>
           </div>
         ))}
+      <button>ADD</button>
     </div>
   );
 }
