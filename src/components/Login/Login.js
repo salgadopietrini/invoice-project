@@ -24,7 +24,7 @@ const SubmitUser = () =>{
   <div>
     <input onChange={SaveUsername}/>
     <input onChange={SavePassword}/>
-    <button onClick={SubmitUser}>Submit</button>
+    <br></br><button onClick={SubmitUser}>Submit</button>
   </div>
     
 
