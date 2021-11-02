@@ -1,14 +1,16 @@
 import React, {useState} from "react";
+import "./Login.css";
 
 export default function Login() {
   const [user, setUser]= useState("");
+  const [pass, setPass]= useState("");
 
 const SaveUsername = (event) =>{
 setUser(event.target.value)
 }
 
 const SavePassword = (event) =>{
-  setUser(event.target.value)
+  setPass(event.target.value)
 }
 
 const SubmitUser = () =>{
@@ -28,5 +30,5 @@ const SubmitUser = () =>{
 
   
   
- </div></center> );
+ </center></div> );
 }
