@@ -19,29 +19,61 @@ export default function HomeContainer() {
 
   const addProduct = (id) => {
     const item = products.find((elem) => elem.id === id);
-    setCart((prevValue) => [...prevValue, { ...item, quantity: 1 }]);
+    const index = cart.findIndex((elem) => elem.id == id);
+    if (index == -1) {
+      setCart((prevValue) => [...prevValue, { ...item, quantity: 1 }]);
+    } else {
+      handleQuantity(id, "add");
+    }
   };
 
-  const handleSum = (id) => {
-    const item = cart.find((elem) => elem.id === id);
-    const index = cart.findIndex((elem) => elem.id === id);
-    console.log(item);
-    console.log(index);
-    /* setCart((prevValue) => {
-      prevValue[index] = { ...item, quantity: item.quantity + 1 };
+  const handleQuantity = (id, action) => {
+    const item = cart.find((elem) => elem.id == id);
+    const index = cart.findIndex((elem) => elem.id == id);
+    console.log(id);
+    console.log(action);
+    setCart((prevValue) => {
+      prevValue[index] = {
+        ...item,
+        quantity:
+          action === "add"
+            ? item.quantity + 1
+            : action === "remove"
+            ? item.quantity - 1
+            : item.quantity,
+      };
       return prevValue;
-    }); */
+    });
+  };
+
+  const handleDelete = (id) => {
+    const index = cart.findIndex((elem) => elem.id == id);
+    setCart((prevValue) =>
+      prevValue
+        .slice(0, index)
+        .concat(prevValue.slice(index + 1, prevValue.length))
+    );
   };
 
   return (
     <div>
       <Navbar />
-      {products.length > 0
-        ? products.map((elem) => (
-            <Product info={elem} addProduct={addProduct} key={elem.id} />
-          ))
-        : "loading"}
-      <Cart cartItems={cart} handleSum={handleSum} />
+      <div style={{ display: "flex" }}>
+        <div style={{ border: "2px solid", width: "200px" }}>
+          {products.length > 0
+            ? products.map((elem) => (
+                <Product info={elem} addProduct={addProduct} key={elem.id} />
+              ))
+            : "loading"}{" "}
+        </div>
+        <div style={{ border: "2px solid", width: "200px" }}>
+          <Cart
+            cartItems={cart}
+            handleQuantity={handleQuantity}
+            handleDelete={handleDelete}
+          />
+        </div>
+      </div>
     </div>
   );
 }
