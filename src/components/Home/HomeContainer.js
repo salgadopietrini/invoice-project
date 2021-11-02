@@ -1,5 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import Navbar from "../Navbar/Navbar";
 
 export default function HomeContainer() {
-  return <div>HomeContainer</div>;
+  const [products, setProducts] = useState([]);
+  /* Call the API for product LIST */
+
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
 }
