@@ -14,11 +14,10 @@ const SavePassword = (event) =>{
 const SubmitUser = () =>{
 
 
-  
 }
 
   return(
-  <div>
+  <div><center>
   <h1>Login</h1>
   <div>
     <input onChange={SaveUsername}/>
@@ -29,5 +28,5 @@ const SubmitUser = () =>{
 
   
   
- </div> );
+ </div></center> );
 }
