@@ -1,33 +1,33 @@
 
-.main{
-    background-color: #040741;
 
-}
 h1{
     color: #FFFFFF;
 }
 
 button{
-position: absolute;
-/*width: 300px;
-height: 45px;
-left: 570px;
-top: 595px;*/
+
 background: #FFFFFF;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+width: 300px;
+height: 45px;
 border-radius: 4px;
+border-color: #FFFFFF;
 font-family: Montserrat;
 font-style: normal;
 font-weight: 600;
 font-size: 16px;
 line-height: 20px;
 text-align: center;
-text-transform: uppercase;
+
 color: #2148C0;
 }
 
 input{
+    width: 300px;
+    height: 45px;
+   /* border-color: #9b9a9a;*/
+    border-width: 1px;
+    border-radius: 2px;
     background-color: #040741;
-    color: #FFFFFF;
-    /*border-color: #FFFFFF*/
+    color: #7e7e7e;
+    border-color: #FFFFFF
 }

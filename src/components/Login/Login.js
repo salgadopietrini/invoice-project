@@ -1,5 +1,8 @@
+import "./Login.css";
 import React, {useState} from "react";
-//import "./Login.css";
+import { Link } from "react-router-dom";
+import Dashboard from "@material-ui/icons/Dashboard";
+
 
 export default function Login() {
   const [user, setUser]= useState("");
@@ -27,13 +30,15 @@ const SubmitUser = () =>{
 }
 
   return(
-  <div><center>
-  <icon ></icon>
+  <div><center><br></br>
+  <Link to={"/"}>
+        <Dashboard className="dashboard" />
+      </Link><br></br>
   <h1>Invoice Project</h1>
   <div>
- 
+  <br></br><br></br>
     <input placeholder="Username" onChange={SaveUsername}/><br></br><br></br>
-    <input placeholder="Password" onChange={SavePassword}/><br></br>
+    <input  placeholder="Password" onChange={SavePassword}/><br></br>
     <br></br><button onClick={SubmitUser}>Submit</button>
   </div>
     
