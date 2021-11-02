@@ -26,27 +26,9 @@ function App() {
     const item = products.find((elem) => elem.id === id);
     const index = cart.findIndex((elem) => elem.id == id);
     if (index == -1) {
-      setCart((prevValue) => [...prevValue, { ...item, quantity: 1 }]);
+      setCart((prevValue) => [...prevValue, item]);
     } else {
-      handleQuantity(id, "add");
     }
-  };
-
-  const handleQuantity = (id, action) => {
-    const item = cart.find((elem) => elem.id == id);
-    const index = cart.findIndex((elem) => elem.id == id);
-    setCart((prevValue) => {
-      prevValue[index] = {
-        ...item,
-        quantity:
-          action === "add"
-            ? item.quantity + 1
-            : action === "remove"
-            ? item.quantity - 1
-            : item.quantity,
-      };
-      return prevValue;
-    });
   };
 
   const handleDelete = (id) => {
@@ -64,7 +46,6 @@ function App() {
           products: products,
           cart: cart,
           addProduct: addProduct,
-          handleQuantity: handleQuantity,
           handleDelete: handleDelete,
         }}
       >
