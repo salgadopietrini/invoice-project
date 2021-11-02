@@ -40,10 +40,11 @@ export default function InvoiceContainer() {
                                         <div style={{backgroundColor: "#090F86"}} >
                                         <h2>Invoice #2</h2>
 
+                                            <Container  style={{width: '50rem'}} className="justify-content-lg-center ">
                                             <Container style={{padding: "40px"}}>
                                                 <Row>
 
-                                                    <Col xs={12} md={12} >
+                                                    <Col xs={6} md={6} style={{marginBottom: "10px"}} >
                                                         <Card>
                                                             <CardImg
                                                                 src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630572642i/2165.jpg"
@@ -56,7 +57,7 @@ export default function InvoiceContainer() {
                                                         </Card>
 
                                                     </Col>
-                                                    <Col xs={12} md={12}>
+                                                    <Col xs={6} md={6} style={{marginBottom: "10px"}}>
                                                         <Card>
                                                             <CardImg
                                                                 src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630572642i/2165.jpg"
@@ -68,7 +69,7 @@ export default function InvoiceContainer() {
                                                             </Card.Footer>
                                                         </Card>
                                                     </Col>
-                                                    <Col xs={12} md={12}>
+                                                    <Col xs={6} md={6} style={{marginBottom: "10px"}}>
                                                         <Card>
                                                             <CardImg
                                                                 src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630572642i/2165.jpg"
@@ -80,12 +81,11 @@ export default function InvoiceContainer() {
                                                             </Card.Footer>
                                                         </Card>
                                                     </Col>
-                                                   
-
-
-
+          
                                                 </Row>
                                             </Container>
+                                            </Container>
+
 
                                         </div>
 
