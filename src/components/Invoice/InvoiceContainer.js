@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 import Dashboard from "@material-ui/icons/Dashboard";
@@ -6,6 +6,7 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./InvoiceContainer.css";
 import {
+  Alert,
   Button,
   Card,
   CardGroup,
@@ -22,6 +23,7 @@ import { Context } from "../../App";
 
 export default function InvoiceContainer() {
   const { cart, setCart, handleDelete, aunt, userId } = useContext(Context);
+  const [confirmation, setConfirmation] = useState(false);
   if (aunt) {
   } else {
     window.location.href = "./login";
@@ -47,6 +49,10 @@ export default function InvoiceContainer() {
     handleDelete(event.target.value);
   };
 
+  const handleConfirmation = () => {
+    setConfirmation(!confirmation);
+  };
+
   return (
     <div>
       <Link to={"/"}>
@@ -58,52 +64,84 @@ export default function InvoiceContainer() {
 
       <h2>Your Invoice</h2>
 
-      <Row>
-        <Col
-          xs={10}
-          md={10}
-          style={{ padding: "20px", margin: "100px", marginTop: "20px" }}
+      <Col
+        xs={10}
+        md={10}
+        style={{ padding: "20px", margin: "100px", marginTop: "20px" }}
+      >
+        <div
+          style={{
+            backgroundColor: "#090F86",
+            borderRadius: "50px",
+            height: "100vh",
+          }}
         >
-          <div style={{ backgroundColor: "#090F86" }}>
-            <h2>Invoice #2</h2>
-
-            <Container
-              style={{ width: "50rem" }}
-              className="justify-content-lg-center "
-            >
-              <Container style={{ padding: "40px" }}>
-                <Row>
-                  {cart.length > 0 &&
-                    cart.map((elem) => (
-                      <Col xs={6} md={6} style={{ marginBottom: "10px" }}>
-                        <Card>
-                          {
-                            <button onClick={deleteItem} value={elem.id}>
+          <h2>New Invoice</h2>
+          <div style={{ border: "2px solid white" }}>
+            <Container style={{ padding: "40px" }}>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr 1fr ",
+                  gridGap: "15px",
+                }}
+              >
+                {cart.length > 0 &&
+                  cart.map((elem) => (
+                    <Card style={{ width: "14rem" }}>
+                      <CardImg
+                        src="https://lallahoriye.com/wp-content/uploads/2019/04/Product_Lg_Type.jpg"
+                        alt=""
+                        height="150px"
+                      />
+                      <Card.Body>
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <div style={{ color: "black" }}>
+                            <Card.Title>{elem.name}</Card.Title>
+                            <Card.Text>
+                              Price: $ {Number.parseFloat(elem.value)}
+                            </Card.Text>
+                          </div>
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Button
+                              onClick={deleteItem}
+                              value={elem.id}
+                              variant="danger"
+                            >
                               x
-                            </button>
-                          }
-                          <CardImg
-                            src="https://lallahoriye.com/wp-content/uploads/2019/04/Product_Lg_Type.jpg"
-                            alt=""
-                            height="150px"
-                          />
-                          <div>{elem.id}</div>
-                          <div>{elem.name}</div>
-                          <div>Price: {Number.parseFloat(elem.value)}</div>
-                          <Card.Footer>
-                            <small className="text-muted">
-                              Added from the Cart
-                            </small>
-                          </Card.Footer>
-                        </Card>
-                      </Col>
-                    ))}
-                </Row>
-                <div
+                            </Button>
+                          </div>
+                        </div>
+                      </Card.Body>
+                    </Card>
+                  ))}
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  paddingBottom: "20px",
+                  paddingTop: "50px",
+                }}
+              >
+                <h4
                   style={{ color: "white" }}
                   className="justify-content-lg-center "
                 >
-                  Total:{" "}
+                  Total: ${" "}
                   {cart.length > 0
                     ? cart
                         .reduce(
@@ -112,25 +150,53 @@ export default function InvoiceContainer() {
                         )
                         .toFixed(2)
                     : 0}
-                </div>
-                <Link to={"/"}>
-                  <button
-                    style={{
-                      color: "#040741",
-                      backgroundColor: "white",
-                      width: "200px",
-                      borderRadius: "25px",
-                    }}
-                    onClick={handleInvoice}
+                </h4>
+                {confirmation ? (
+                  <div>
+                    <Alert variant="warning">
+                      Are you sure you want to create the invoice? This action
+                      cannot be undone
+                    </Alert>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-around",
+                        width: "40%",
+                        margin: "auto",
+                      }}
+                    >
+                      <Link to={"/"}>
+                        <Button
+                          variant="success"
+                          size="lg"
+                          onClick={handleInvoice}
+                        >
+                          Yes
+                        </Button>
+                      </Link>
+                      <Button
+                        variant="danger"
+                        size="lg"
+                        onClick={handleConfirmation}
+                      >
+                        No
+                      </Button>
+                    </div>
+                  </div>
+                ) : (
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    onClick={handleConfirmation}
                   >
-                    CHECKOUT
-                  </button>
-                </Link>
-              </Container>
+                    Create Invoice
+                  </Button>
+                )}
+              </div>
             </Container>
           </div>
-        </Col>
-      </Row>
+        </div>
+      </Col>
     </div>
   );
 }

@@ -44,9 +44,22 @@ export default function HomeContainer() {
           style={{ padding: "20px", margin: "100px", marginTop: "20px" }}
         >
           <h2>Products</h2>
-          <div style={{ backgroundColor: "#090F86" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "#090F86",
+              padding: "20px",
+              borderRadius: "50px",
+            }}
+          >
             <div
-              style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr 1fr ",
+                gridGap: "15px",
+              }}
             >
               {products.length > 0
                 ? products.map((elem) => (
@@ -69,7 +82,7 @@ export default function HomeContainer() {
             }}
           >
             <ShoppingCart className="cart" />
-            <div style={{ border: "2px solid", width: "200px" }}>
+            <div style={{ display: "flex", flexDirection: "column" }}>
               <Cart />
             </div>
           </div>
