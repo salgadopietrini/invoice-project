@@ -50,13 +50,13 @@ export default function InvoiceContainer() {
         <Col
           xs={10}
           md={10}
-          style={{ padding: "20px", margin: "100px", marginTop: "20px" }}
+          style={{ padding: "20px", margin: "100px", marginTop: "20px"}}
         >
-          <div style={{ backgroundColor: "#090F86" }}>
+          <div style={{ backgroundColor: "#090F86"}} >
             <h2>Invoice #2</h2>
 
             <Container
-              style={{ width: "50rem" }}
+              style={{ width: "50rem"}}
               className="justify-content-lg-center "
             >
               <Container style={{ padding: "40px" }}>
@@ -73,7 +73,7 @@ export default function InvoiceContainer() {
                           <CardImg
                             src="https://lallahoriye.com/wp-content/uploads/2019/04/Product_Lg_Type.jpg"
                             alt=""
-                            height="200px"
+                            height="150px"
                           />
                           <div>{elem.id}</div>
                           <div>{elem.name}</div>
