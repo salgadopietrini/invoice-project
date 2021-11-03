@@ -49,7 +49,7 @@ export default function HomeContainer() {
           <div style={{ backgroundColor: "#090F86" }}>
           
       <div style={{ display: "flex" }}>
-        <div style={{ width: "100%"}}>
+        
 
           {products.length > 0
             ? products.map((elem) => (
@@ -57,7 +57,7 @@ export default function HomeContainer() {
                 <Product info={elem} addProduct={addProduct} key={elem.id} />
               ))
             : "loading"}{" "}
-        </div>
+    
       
       </div>
 </div>
