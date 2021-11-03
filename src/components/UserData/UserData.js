@@ -6,7 +6,7 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import Edit from "@material-ui/icons/Edit";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight"
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./UserData.js";
+import "./UserData.css";
 export default function UserData() {
   const { aunt } = useContext(Context);
   if (aunt) {
