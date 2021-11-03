@@ -40,7 +40,7 @@ const SubmitUser = () =>{
 
   return(
   <div><center><br></br>
-  <Link to={"/"}>
+  <Link to={"/Login"}>
         <Dashboard className="dashboard" />
       </Link><br></br>
   <h1>Invoice Project</h1>
