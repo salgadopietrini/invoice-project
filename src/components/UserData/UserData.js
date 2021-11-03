@@ -13,6 +13,9 @@ export default function UserData() {
   } else {
     window.location.href = "./login";
   }
+  const handleLogout = () => {
+    window.location.href = "./login";
+  };
   return (
   <div>
   
@@ -41,11 +44,18 @@ export default function UserData() {
   <center>
   <div className="container2">
 <div className="rightContent" >
-<Link to={"/"}><KeyboardArrowRight className="icons2"  ></KeyboardArrowRight></Link>
+<Link to={"/ListInvoice"}><KeyboardArrowRight className="icons2"  ></KeyboardArrowRight></Link>
 </div><br></br>
 <div className="contentDiv2" ><h4>{}’s Invoices</h4>
 
 </div></div>
+
+ <button  style={{
+                      color: "#040741",
+                      backgroundColor: "white",
+                      width: "200px",
+                      borderRadius: "25px",
+                    }} onClick={handleLogout}>Log Out</button>
 </center>
   
     </div>

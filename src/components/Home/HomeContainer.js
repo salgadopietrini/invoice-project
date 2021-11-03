@@ -30,7 +30,7 @@ export default function HomeContainer() {
 
   return (
     <div className="home-container">
-      <Navbar />
+  
       <Link to={"/"}>
         <Dashboard className="dashboard" />
       </Link>

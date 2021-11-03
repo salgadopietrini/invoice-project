@@ -20,18 +20,20 @@ export default function ListInvoice() {
       <Link to={"/userData"}>
         <AccountCircle className="account" />
       </Link>
+
+      <h2>Invoice List</h2>
       
       {invoiceList.length > 0 &&
         invoiceList.map((elem) => <div> 
         <center>
-  <div className="container2">
-<div className="rightContent" >
-<Link to={"/"}><KeyboardArrowRight className="icons2"  ></KeyboardArrowRight></Link>
-</div><br></br>
-<div className="contentDiv2" ><h4>{elem.id}</h4>
+          <div className="container2">
+        <div className="rightContent" >
+        <Link to={"/"}><KeyboardArrowRight className="icons2"  ></KeyboardArrowRight></Link>
+        </div><br></br>
+        <div className="contentDiv2" ><h4>{elem.id}</h4>
 
-</div></div>
-</center>
+        </div></div>
+        </center>
         
         </div>)}
     </div>
