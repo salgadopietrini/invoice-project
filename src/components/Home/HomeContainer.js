@@ -5,7 +5,12 @@ import Cart from "./Cart";
 import { Context } from "../../App";
 
 export default function HomeContainer() {
-  const { products, addProduct } = useContext(Context);
+  const { products, addProduct, aunt } = useContext(Context);
+  if (aunt) {
+  } else {
+    window.location.href = "./login";
+  }
+
   return (
     <div>
       <Navbar />

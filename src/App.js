@@ -14,6 +14,8 @@ export const Context = React.createContext();
 function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+  const [aunt, setAunt] = useState(false);
+  const invoiceList = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
 
   useEffect(() => {
     axios
@@ -45,8 +47,12 @@ function App() {
         value={{
           products: products,
           cart: cart,
+          setCart: setCart,
           addProduct: addProduct,
           handleDelete: handleDelete,
+          invoiceList: invoiceList,
+          aunt: aunt,
+          setAunt: setAunt,
         }}
       >
         <BrowserRouter>

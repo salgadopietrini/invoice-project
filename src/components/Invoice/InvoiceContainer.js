@@ -21,7 +21,11 @@ import {
 import { Context } from "../../App";
 
 export default function InvoiceContainer() {
-  const { cart, setCart, handleDelete } = useContext(Context);
+  const { cart, setCart, handleDelete, aunt } = useContext(Context);
+  if (aunt) {
+  } else {
+    window.location.href = "./login";
+  }
 
   const handleInvoice = () => {
     setCart([]);
@@ -83,28 +87,36 @@ export default function InvoiceContainer() {
                       </Col>
                     ))}
                 </Row>
-             <div style={{ color: "white"}}  className="justify-content-lg-center ">
-              Total:{" "}
-              {cart.length > 0
-                ? cart
-                    .reduce(
-                      (acum, elem) => acum + Number.parseFloat(elem.value),
-                      0
-                    )
-                    .toFixed(2)
-                : 0}
-            </div>
-            <button style={{ color: "#040741", backgroundColor: "white", width:"200px", borderRadius:"25px"}} onClick={handleInvoice}>CHECKOUT</button>
+                <div
+                  style={{ color: "white" }}
+                  className="justify-content-lg-center "
+                >
+                  Total:{" "}
+                  {cart.length > 0
+                    ? cart
+                        .reduce(
+                          (acum, elem) => acum + Number.parseFloat(elem.value),
+                          0
+                        )
+                        .toFixed(2)
+                    : 0}
+                </div>
+                <Link to={"/"}>
+                  <button
+                    style={{
+                      color: "#040741",
+                      backgroundColor: "white",
+                      width: "200px",
+                      borderRadius: "25px",
+                    }}
+                    onClick={handleInvoice}
+                  >
+                    CHECKOUT
+                  </button>
+                </Link>
               </Container>
-
-              
             </Container>
-            
-           
-         
-            
           </div>
-        
         </Col>
       </Row>
     </div>

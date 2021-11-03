@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../../App";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   const { cart, handleDelete } = useContext(Context);
@@ -22,7 +23,9 @@ export default function Cart() {
             <div>{elem.value}</div>
           </div>
         ))}
-      <button>ADD</button>
+      <Link to={cart.length > 0 ? "/invoice" : "/"}>
+        <button>Invoice</button>
+      </Link>
     </div>
   );
 }
