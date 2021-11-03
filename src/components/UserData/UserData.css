@@ -75,13 +75,17 @@
   margin-top: -30px;
 }
 
-.container {
+.ud-container {
   background-color: #090f86;
   width: 60%;
-  height: 130px;
+  height: fit-content;
   -ms-text-size-adjust: 20%;
   color: white;
   margin-bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .container2 {
@@ -122,4 +126,14 @@
   font-weight: bold;
   font-size: 20px;
   line-height: 24px;
+}
+
+.subContentDiv input {
+  width: 30%;
+  margin-bottom: 8px;
+  background-color: transparent;
+  padding: 15px;
+  padding-bottom: 10px;
+  color: white;
+  font-weight: bold;
 }

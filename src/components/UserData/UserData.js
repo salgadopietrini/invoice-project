@@ -71,7 +71,7 @@ export default function UserData() {
         </div>
       </center>
 
-      <div className="container">
+      <div className="ud-container">
         <div className="rightContent">
           <Edit className="icons" onClick={handleEdit}></Edit>
         </div>
