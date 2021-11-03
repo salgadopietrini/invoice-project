@@ -44,7 +44,7 @@ export default function Cart() {
         <button  style={{
                     color: "#040741",
                     backgroundColor: "white",
-                    width: "200px",
+                    width: "100%",
                     borderRadius: "25px",
                     }}>Invoice</button>
       </Link>
