@@ -1,0 +1,25 @@
+body {
+  background-color: #040741;
+}
+
+h2 {
+  color: white;
+  padding: 20px;
+}
+
+.dashboard {
+  font-size: 100px !important;
+  color: white;
+}
+
+.account {
+  font-size: 100px !important;
+  color: white;
+  margin-left: 80% !important;
+}
+
+.cart {
+  font-size: 60px !important;
+  color: white;
+  margin-left: 70px !important;
+}
