@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 import Dashboard from "@material-ui/icons/Dashboard";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./InvoiceContainer.css";
+import "../Invoice/InvoiceContainer.css";
 import {
   Button,
   Card,
@@ -18,34 +19,16 @@ import {
   Row,
 } from "react-bootstrap";
 
-import { Context } from "../../App";
+export default function ParticularInvoice(props) {
+  const id = props.location.state.invoiceId;
+  const [invoiceProducts, setInvoiceProducts] = useState([]);
 
-export default function InvoiceContainer() {
-  const { cart, setCart, handleDelete, aunt, userId } = useContext(Context);
-  if (aunt) {
-  } else {
-    window.location.href = "./login";
-  }
-
-  const handleInvoice = () => {
-    let _data = {
-      productIds: cart.map((elem) => elem.id),
-      userId: userId,
-    };
-
-    fetch("http://localhost:8080/api/invoices/products/", {
-      method: "POST",
-      body: JSON.stringify(_data),
-      headers: { "Content-type": "application/json; charset=UTF-8" },
-    })
-      .then((response) => response.json())
-      .then((json) => console.log(json));
-    setCart([]);
-  };
-
-  const deleteItem = (event) => {
-    handleDelete(event.target.value);
-  };
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/api/invoices/${id}`)
+      .then((response) => setInvoiceProducts(response.data.productResponses))
+      .catch((err) => console.log(err));
+  }, [id]);
 
   return (
     <div>
@@ -65,7 +48,7 @@ export default function InvoiceContainer() {
           style={{ padding: "20px", margin: "100px", marginTop: "20px" }}
         >
           <div style={{ backgroundColor: "#090F86" }}>
-            <h2>Invoice #2</h2>
+            <h2>Invoice {id}</h2>
 
             <Container
               style={{ width: "50rem" }}
@@ -73,28 +56,24 @@ export default function InvoiceContainer() {
             >
               <Container style={{ padding: "40px" }}>
                 <Row>
-                  {cart.length > 0 &&
-                    cart.map((elem) => (
-                      <Col xs={6} md={6} style={{ marginBottom: "10px" }}>
+                  {invoiceProducts.length > 0 &&
+                    invoiceProducts.map((elem) => (
+                      <Col
+                        xs={6}
+                        md={6}
+                        style={{ marginBottom: "10px" }}
+                        key={elem.id}
+                      >
                         <Card>
-                          {
-                            <button onClick={deleteItem} value={elem.id}>
-                              x
-                            </button>
-                          }
                           <CardImg
                             src="https://lallahoriye.com/wp-content/uploads/2019/04/Product_Lg_Type.jpg"
                             alt=""
                             height="150px"
                           />
-                          <div>{elem.id}</div>
-                          <div>{elem.name}</div>
-                          <div>Price: {Number.parseFloat(elem.value)}</div>
-                          <Card.Footer>
-                            <small className="text-muted">
-                              Added from the Cart
-                            </small>
-                          </Card.Footer>
+                          <div style={{ color: "black" }}>
+                            <div>{elem.name}</div>
+                            <div>Price: $ {Number.parseFloat(elem.value)}</div>
+                          </div>
                         </Card>
                       </Col>
                     ))}
@@ -103,9 +82,9 @@ export default function InvoiceContainer() {
                   style={{ color: "white" }}
                   className="justify-content-lg-center "
                 >
-                  Total:{" "}
-                  {cart.length > 0
-                    ? cart
+                  Total:{" $ "}
+                  {invoiceProducts.length > 0
+                    ? invoiceProducts
                         .reduce(
                           (acum, elem) => acum + Number.parseFloat(elem.value),
                           0
@@ -113,7 +92,7 @@ export default function InvoiceContainer() {
                         .toFixed(2)
                     : 0}
                 </div>
-                <Link to={"/"}>
+                <Link to={"/ListInvoice"}>
                   <button
                     style={{
                       color: "#040741",
@@ -121,9 +100,20 @@ export default function InvoiceContainer() {
                       width: "200px",
                       borderRadius: "25px",
                     }}
-                    onClick={handleInvoice}
                   >
-                    CHECKOUT
+                    Back to invoices list
+                  </button>
+                </Link>
+                <Link to={"/ListInvoice"}>
+                  <button
+                    style={{
+                      color: "#040741",
+                      backgroundColor: "white",
+                      width: "200px",
+                      borderRadius: "25px",
+                    }}
+                  >
+                    Return to home
                   </button>
                 </Link>
               </Container>

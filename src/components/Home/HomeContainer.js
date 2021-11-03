@@ -30,7 +30,6 @@ export default function HomeContainer() {
 
   return (
     <div className="home-container">
-  
       <Link to={"/"}>
         <Dashboard className="dashboard" />
       </Link>
@@ -38,40 +37,43 @@ export default function HomeContainer() {
         <AccountCircle className="account" />
       </Link>
 
-      
-<Row>
+      <Row>
         <Col
           xs={8}
           md={8}
           style={{ padding: "20px", margin: "100px", marginTop: "20px" }}
         >
-         <h2>Products</h2>
+          <h2>Products</h2>
           <div style={{ backgroundColor: "#090F86" }}>
-          
-      <div style={{ display: "flex" }}>
-        
-
-          {products.length > 0
-            ? products.map((elem) => (
-                 
-                <Product info={elem} addProduct={addProduct} key={elem.id} />
-              ))
-            : "loading"}{" "}
-    
-      
-      </div>
-</div>
-       </Col>
-        <Col xs={2} md={2}>
-              <div style={{backgroundColor: "#090F86", padding:"10px", marginTop: "20px"}} >
-                     <ShoppingCart className="cart"/>
-              <div style={{ border: "2px solid", width: "200px" }}>
-                  <Cart />
-               </div>
-               </div>
-
+            <div
+              style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }}
+            >
+              {products.length > 0
+                ? products.map((elem) => (
+                    <Product
+                      info={elem}
+                      addProduct={addProduct}
+                      key={elem.id}
+                    />
+                  ))
+                : "loading"}{" "}
+            </div>
+          </div>
         </Col>
-
+        <Col xs={2} md={2}>
+          <div
+            style={{
+              backgroundColor: "#090F86",
+              padding: "10px",
+              marginTop: "20px",
+            }}
+          >
+            <ShoppingCart className="cart" />
+            <div style={{ border: "2px solid", width: "200px" }}>
+              <Cart />
+            </div>
+          </div>
+        </Col>
       </Row>
     </div>
   );

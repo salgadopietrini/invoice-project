@@ -2,24 +2,34 @@ import "./Login.css";
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import Dashboard from "@material-ui/icons/Dashboard";
-import axios from "axios";
 import { Context } from "../../App";
 
 export default function Login() {
-  const { aunt, setAunt } = useContext(Context);
+  const { aunt, setAunt, setUserId } = useContext(Context);
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
 
+  let _data = {
+    password: pass,
+    userName: user,
+  };
+
   useEffect(() => {
-    axios
-      .get("https://mocki.io/v1/ae918de4-a89f-4b95-abd7-f674e511e59c")
-      .then((response) =>
-        setAunt(
-          response.data.username === user && response.data.password === pass
-            ? true
-            : false
-        )
-      )
+    fetch("http://localhost:8080/users/name-password", {
+      method: "POST",
+      body: JSON.stringify(_data),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        if (typeof json.id == "number") {
+          setAunt(true);
+          setUserId(json.id);
+        } else {
+          setAunt(false);
+          setUserId("");
+        }
+      })
       .catch((err) => console.log(err));
   }, [user, pass, setAunt]);
 
