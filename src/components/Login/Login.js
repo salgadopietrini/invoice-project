@@ -37,7 +37,7 @@ export default function Login() {
     <div>
       <center>
         <br></br>
-        <Link to={"/"}>
+        <Link to={"/Login"}>
           <Dashboard className="dashboard" />
         </Link>
         <br></br>
