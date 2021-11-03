@@ -2,6 +2,7 @@ import "./Login.css";
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import Dashboard from "@material-ui/icons/Dashboard";
+import { Card, CardImg, Col, Button } from "react-bootstrap";
 import { Context } from "../../App";
 
 export default function Login() {
@@ -73,9 +74,9 @@ export default function Login() {
           <br></br>
           <br></br>
           <Link to={aunt ? "/" : "/login"}>
-            <button className="button" onClick={submitUser}>
-              Submit
-            </button>
+            <Button size="lg" variant="secondary" onClick={submitUser}>
+              Log In
+            </Button>
           </Link>
         </div>
       </center>
