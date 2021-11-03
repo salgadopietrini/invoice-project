@@ -8,7 +8,7 @@ export default function ListInvoice() {
     window.location.href = "./login";
   }
   return (
-    <div className="invoiceList">
+    <div>
       {invoiceList.length > 0 &&
         invoiceList.map((elem) => <div>{elem.id}</div>)}
     </div>

@@ -1,0 +1,13 @@
+.circleLogo{
+        font-size: 200px !important;
+        color: white;
+        margin-top: -100px;
+}
+
+.container{
+        background-color: blue;
+        width: 100px;
+        height: 100px;
+}
+
+
