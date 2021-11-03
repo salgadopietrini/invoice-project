@@ -41,7 +41,12 @@ export default function Cart() {
           </div>
         ))}
       <Link to={cart.length > 0 ? "/invoice" : "/"}>
-        <button>Invoice</button>
+        <button  style={{
+                    color: "#040741",
+                    backgroundColor: "white",
+                    width: "200px",
+                    borderRadius: "25px",
+                    }}>Invoice</button>
       </Link>
     </div>
   );

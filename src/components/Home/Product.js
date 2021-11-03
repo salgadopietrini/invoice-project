@@ -28,7 +28,13 @@ export default function Product({ info, addProduct }) {
       <div style={{color: "white"}}>{info.id}</div>
       <div style={{color: "white"}}>{info.name}</div>
       <div style={{color: "white"}}>{info.value}</div>
-      <button onClick={add}>Add!</button>
+      <button 
+                    style={{
+                      color: "#040741",
+                      backgroundColor: "white",
+                      width: "200px",
+                      borderRadius: "25px",
+                    }} onClick={add}>Add!</button>
       </Col>
     </div>
   );
