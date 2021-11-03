@@ -49,8 +49,25 @@ export default function ListInvoice() {
                   </Link>
                 </div>
                 <br></br>
-                <div className="contentDiv2">
-                  <h4>Invoice number: {elem.id}</h4>
+                <div
+                  className="contentDiv2"
+                  style={{
+                    display: "flex",
+                    paddingRight: "100px",
+                    paddingLeft: "25px",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div
+                    style={{
+                      border: "2px solid white",
+                      borderRadius: "50%",
+                      height: "35px",
+                      width: "35px",
+                    }}
+                  >
+                    <h4>{elem.id}</h4>
+                  </div>
                   <h4>Number of items: {elem.productResponses.length}</h4>
                   <h4>Total: ${elem.total}</h4>
                 </div>

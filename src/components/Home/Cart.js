@@ -1,18 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../../App";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Card,
-  CardGroup,
-  CardImg,
-  Col,
-  Container,
-  Form,
-  FormControl,
-  Image,
-  Row,
-} from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 
 export default function Cart() {
   const { cart, handleDelete } = useContext(Context);

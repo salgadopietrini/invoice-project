@@ -7,6 +7,7 @@ import Edit from "@material-ui/icons/Edit";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Card, CardImg, Col, Button } from "react-bootstrap";
 import "./UserData.css";
 export default function UserData() {
   const { aunt, userId } = useContext(Context);
@@ -64,17 +65,14 @@ export default function UserData() {
       <Link to={"/"}>
         <Dashboard className="dashboard" />
       </Link>
-      <center>
-        <div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <div style={{ textAlign: "center" }}>
           <AccountCircle className="circleLogo" />
           <h2>{user && user.name}</h2>
         </div>
-      </center>
+      </div>
 
       <div className="ud-container">
-        <div className="rightContent">
-          <Edit className="icons" onClick={handleEdit}></Edit>
-        </div>
         <div className="contentDiv">
           <h4>User Info</h4>
           {edit ? (
@@ -103,8 +101,18 @@ export default function UserData() {
                   value={userEdit.password}
                 />
               </p>
-              <button onClick={handleSubmit}>Save</button>
-              <button onClick={handleEdit}>Cancel</button>
+              <div>
+                <Button
+                  variant="success"
+                  onClick={handleSubmit}
+                  style={{ marginRight: "25px" }}
+                >
+                  Save
+                </Button>
+                <Button variant="danger" onClick={handleEdit}>
+                  Cancel
+                </Button>
+              </div>
             </div>
           ) : (
             <div className="subContentDiv">
@@ -113,9 +121,19 @@ export default function UserData() {
             </div>
           )}
         </div>
+        <div className="rightContent">
+          <Edit className="icons" onClick={handleEdit}></Edit>
+        </div>
       </div>
 
-      <center>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <div className="container2">
           <div className="rightContent">
             <Link to={"/ListInvoice"}>
@@ -128,18 +146,10 @@ export default function UserData() {
           </div>
         </div>
 
-        <button
-          style={{
-            color: "#040741",
-            backgroundColor: "white",
-            width: "200px",
-            borderRadius: "25px",
-          }}
-          onClick={handleLogout}
-        >
+        <Button variant="secondary" size="lg" onClick={handleLogout}>
           Log Out
-        </button>
-      </center>
+        </Button>
+      </div>
     </div>
   );
 }

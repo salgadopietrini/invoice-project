@@ -1,23 +1,10 @@
 import React, { useState, useContext } from "react";
-import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 import Dashboard from "@material-ui/icons/Dashboard";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./InvoiceContainer.css";
-import {
-  Alert,
-  Button,
-  Card,
-  CardGroup,
-  CardImg,
-  Col,
-  Container,
-  Form,
-  FormControl,
-  Image,
-  Row,
-} from "react-bootstrap";
+import { Alert, Button, Card, CardImg, Col } from "react-bootstrap";
 
 import { Context } from "../../App";
 
@@ -73,16 +60,21 @@ export default function InvoiceContainer() {
           style={{
             backgroundColor: "#090F86",
             borderRadius: "50px",
-            height: "100vh",
+            padding: "20px",
           }}
         >
           <h2>New Invoice</h2>
-          <div style={{ border: "2px solid white" }}>
-            <Container style={{ padding: "40px" }}>
+          <div
+            style={{
+              paddingRight: "50px",
+              paddingLeft: "50px",
+            }}
+          >
+            <div style={{ padding: "40px" }}>
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "1fr 1fr 1fr ",
+                  gridTemplateColumns: "1fr 1fr 1fr 1fr",
                   gridGap: "15px",
                 }}
               >
@@ -193,7 +185,7 @@ export default function InvoiceContainer() {
                   </Button>
                 )}
               </div>
-            </Container>
+            </div>
           </div>
         </div>
       </Col>

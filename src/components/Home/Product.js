@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Card,
-  CardGroup,
-  CardImg,
-  Col,
-  Container,
-  Form,
-  FormControl,
-  Image,
-  Row,
-} from "react-bootstrap";
+import { Button, Card, CardImg } from "react-bootstrap";
 
 export default function Product({ info, addProduct }) {
   const add = () => {

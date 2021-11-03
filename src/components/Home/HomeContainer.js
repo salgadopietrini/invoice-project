@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Navbar from "../Navbar/Navbar";
+
 import Product from "./Product";
 import Cart from "./Cart";
 import { Context } from "../../App";
@@ -8,18 +8,7 @@ import Dashboard from "@material-ui/icons/Dashboard";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import "./Home.css";
-import {
-  Button,
-  Card,
-  CardGroup,
-  CardImg,
-  Col,
-  Container,
-  Form,
-  FormControl,
-  Image,
-  Row,
-} from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 export default function HomeContainer() {
   const { products, addProduct, aunt } = useContext(Context);
@@ -77,8 +66,9 @@ export default function HomeContainer() {
           <div
             style={{
               backgroundColor: "#090F86",
-              padding: "10px",
+              padding: "15px",
               marginTop: "20px",
+              borderRadius: "25px",
             }}
           >
             <ShoppingCart className="cart" />

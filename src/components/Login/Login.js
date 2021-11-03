@@ -9,12 +9,12 @@ export default function Login() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
 
-  let _data = {
-    password: pass,
-    userName: user,
-  };
-
   useEffect(() => {
+    let _data = {
+      password: pass,
+      userName: user,
+    };
+
     fetch("http://localhost:8080/users/name-password", {
       method: "POST",
       body: JSON.stringify(_data),
@@ -31,7 +31,7 @@ export default function Login() {
         }
       })
       .catch((err) => console.log(err));
-  }, [user, pass, setAunt]);
+  }, [user, pass, setAunt, setUserId]);
 
   const saveUsername = (event) => {
     setUser(event.target.value);
