@@ -28,9 +28,9 @@ export default function HomeContainer() {
   }
 
   return (
-    <div>
+    <div className="home-container">
       <Navbar />
-        <Link to={"/"}>
+      <Link to={"/"}>
         <Dashboard className="dashboard" />
       </Link>
       <Link to={"/userData"}>
