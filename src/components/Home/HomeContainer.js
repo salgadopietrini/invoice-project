@@ -3,7 +3,10 @@ import Navbar from "../Navbar/Navbar";
 import Product from "./Product";
 import Cart from "./Cart";
 import { Context } from "../../App";
-import "./HomeContainer.css";
+import { Link } from "react-router-dom";
+import Dashboard from "@material-ui/icons/Dashboard";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import "./Home.css";
 
 export default function HomeContainer() {
   const { products, addProduct, aunt } = useContext(Context);
@@ -15,6 +18,13 @@ export default function HomeContainer() {
   return (
     <div className="home-container">
       <Navbar />
+      <Link to={"/"}>
+        <Dashboard className="dashboard" />
+      </Link>
+      <Link to={"/userData"}>
+        <AccountCircle className="account" />
+      </Link>
+
       <div style={{ display: "flex" }}>
         <div style={{ border: "2px solid", width: "200px", height: "700px" }}>
           {products.length > 0
