@@ -1,4 +1,16 @@
 import React from "react";
+import {
+  Button,
+  Card,
+  CardGroup,
+  CardImg,
+  Col,
+  Container,
+  Form,
+  FormControl,
+  Image,
+  Row,
+} from "react-bootstrap";
 
 export default function Product({ info, addProduct }) {
   const add = () => {
@@ -6,10 +18,29 @@ export default function Product({ info, addProduct }) {
   };
   return (
     <div>
-      <div>{info.id}</div>
-      <div>{info.name}</div>
-      <div>{info.value}</div>
-      <button onClick={add}>Add!</button>
+  
+      <Col xs={10} md={10}  style={{ padding: "20px"}}>
+     <CardImg
+         src="https://lallahoriye.com/wp-content/uploads/2019/04/Product_Lg_Type.jpg"
+         alt=""
+         height="200px"
+        width="100px"
+      />
+
+      
+      <div style={{color: "white"}}>{info.id}</div>
+      <div style={{color: "white"}}>{info.name}</div>
+      <div style={{color: "white"}}>{info.value}</div>
+      <button 
+                    style={{
+                      color: "#040741",
+                      backgroundColor: "white",
+                      width: "200px",
+                      borderRadius: "25px",
+                    }} onClick={add}>Add!</button>
+      </Col>
+     
+      
     </div>
   );
 }

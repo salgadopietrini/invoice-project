@@ -5,6 +5,7 @@ import Cart from "./Cart";
 import { Context } from "../../App";
 import { Link } from "react-router-dom";
 import Dashboard from "@material-ui/icons/Dashboard";
+import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import "./Home.css";
 import {
@@ -48,20 +49,22 @@ export default function HomeContainer() {
           <div style={{ backgroundColor: "#090F86" }}>
           
       <div style={{ display: "flex" }}>
-        <div style={{ border: "2px solid", width: "200px", height: "700px" }}>
+        
+
           {products.length > 0
             ? products.map((elem) => (
+                 
                 <Product info={elem} addProduct={addProduct} key={elem.id} />
               ))
             : "loading"}{" "}
-        </div>
+    
       
       </div>
 </div>
        </Col>
         <Col xs={2} md={2}>
               <div style={{backgroundColor: "#090F86", padding:"10px", marginTop: "20px"}} >
-                      <h2>Cart</h2>
+                     <ShoppingCart className="cart"/>
               <div style={{ border: "2px solid", width: "200px" }}>
                   <Cart />
                </div>
