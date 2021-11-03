@@ -53,3 +53,73 @@
   font-size: 20px;
   line-height: 24px;
 }
+
+.dashboard {
+        font-size: 100px !important;
+        color: white;
+      }
+
+.account {
+        font-size: 100px !important;
+        color: white;
+        margin-left: 80% !important;
+      }
+      
+      .circleLogo{
+        font-size: 200px !important;
+        color: white;
+        margin-top: -30px;
+      }
+      
+      .container{
+        background-color: #090F86;
+        width: 60%;
+        height: 130px;
+        -ms-text-size-adjust: 20%;
+        color: white;
+        margin-bottom: 30px;
+      }
+      
+      .container2{
+        background-color: #383DAB;
+        width: 60%;
+        height: 100px;
+        -ms-text-size-adjust: 20%;
+        color: white;
+        margin-bottom: 30px;
+      }
+      
+      
+      
+      .rightContent{
+        color: white;
+        text-align: right;
+      }
+      
+      .icons{
+        font-size: 20px !important;
+        color: white;
+      }
+      
+      .icons2{
+        font-size: 100px !important;
+        color: white;
+      }
+      
+      .contentDiv {
+        margin-top: -20px;
+      
+      }
+      
+      .contentDiv2 {
+       margin-top: -90px;
+      
+      }
+      .subContentDiv {
+        margin-top: -5px;
+        margin-left: 100px;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 24px;
+      }
