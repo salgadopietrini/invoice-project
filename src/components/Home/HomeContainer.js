@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import Product from "./Product";
 import Cart from "./Cart";
 import { Context } from "../../App";
+import "./HomeContainer.css";
 
 export default function HomeContainer() {
   const { products, addProduct, aunt } = useContext(Context);
@@ -12,7 +13,7 @@ export default function HomeContainer() {
   }
 
   return (
-    <div>
+    <div className="home-container">
       <Navbar />
       <div style={{ display: "flex" }}>
         <div style={{ border: "2px solid", width: "200px", height: "700px" }}>
