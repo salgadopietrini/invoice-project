@@ -2,13 +2,14 @@ import "./Login.css";
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import Dashboard from "@material-ui/icons/Dashboard";
-import { Card, CardImg, Col, Button } from "react-bootstrap";
+import { Button, Alert, CloseButton } from "react-bootstrap";
 import { Context } from "../../App";
 
 export default function Login() {
   const { aunt, setAunt, setUserId } = useContext(Context);
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
+  const [alert, setAlert] = useState("");
 
   useEffect(() => {
     let _data = {
@@ -42,7 +43,17 @@ export default function Login() {
     setPass(event.target.value);
   };
 
-  const submitUser = () => {};
+  const submitUser = () => {
+    if (alert) {
+      setAlert(false);
+    } else {
+      setAlert(true);
+    }
+  };
+
+  const handleAlert = () => {
+    setAlert(false);
+  };
 
   return (
     <div>
@@ -71,8 +82,23 @@ export default function Login() {
             onChange={savePassword}
             value={pass}
           />
-          <br></br>
-          <br></br>
+
+          <div
+            style={{ width: "30%", marginTop: "60px", marginBottom: "60px" }}
+          >
+            {alert ? (
+              <div>
+                <Alert
+                  variant="warning"
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  Username or password not valids, please try again
+                  <CloseButton onClick={handleAlert} />
+                </Alert>
+              </div>
+            ) : null}
+          </div>
+
           <Link to={aunt ? "/" : "/login"}>
             <Button size="lg" variant="secondary" onClick={submitUser}>
               Log In
